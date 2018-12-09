@@ -1,11 +1,22 @@
-<div class="container">
-  <div class="form-group mt-4">
-    <input class="form-control" type="text" placeholder="Task Title" [(ngModel)]="task.title" />
+<div class="container pt-4">
+  <div><a routerLink="/" class="btn btn-primary">	&lt; Task Manager</a></div>
+  <div @fadeIn>
+    <div class="form-group mt-4">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Task Title"
+        [(ngModel)]="task.title"
+      />
+    </div>
+    <div class="form-group">
+      <textarea
+        class="form-control"
+        placeholder="Task Description"
+        [(ngModel)]="task.description"
+      ></textarea>
+    </div>
+    <button class="btn btn-success mr-2" (click)="editTask()">Edit</button>
+    <a class="btn btn-danger" routerLink="/">Cancel</a>
   </div>
-  <div class="form-group">
-    <textarea class="form-control" placeholder="Task Description" [(ngModel)]="task.description"></textarea>
-  </div>
-  <button class="btn btn-success mr-2" (click)="editTask()">Edit</button>
-  <button class="btn btn-danger mr-2" (click)="deleteTask()">Delete</button>
-  <a class="float-right btn btn-danger" routerLink="/">Cancel</a>
 </div>

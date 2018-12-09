@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TaskComponent } from './task/task.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ViewTaskComponent } from './view-task/view-task.component'
 
 @NgModule({
   declarations: [
@@ -14,9 +16,11 @@ import { TaskComponent } from './task/task.component';
     HomeComponent,
     AddTaskComponent,
     NotFoundComponent,
-    TaskComponent
+    TaskComponent,
+    ViewTaskComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule
