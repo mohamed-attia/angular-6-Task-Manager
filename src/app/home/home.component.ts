@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
 import { Title } from '@angular/platform-browser';
 import { trigger, transition, style, query, animate, group,state } from '@angular/animations';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -33,7 +34,8 @@ export class HomeComponent implements OnInit {
 
   public deleteTask(index) {
     if (confirm("Are you sure to delete " + this.tasks[index].title)) {
-      this.tasksService.deleteTaskById(index)
+      this.tasksService.deleteTaskById(index);
     }
   }
+
 }

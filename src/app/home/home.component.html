@@ -3,7 +3,7 @@
   <div><a routerLink="/add-task" class="btn btn-primary"> Add New Task</a></div>
 
   <div *ngIf="tasks.length === 0" class="mt-4">
-    <p class="alert alert-primary">There is no tasks</p>
+    <p class="alert alert-primary">There are no tasks enjoy your day !!</p>
   </div>
   
   <div [@fadeIn]="state" class="mt-4 card" *ngIf="tasks.length !== 0">

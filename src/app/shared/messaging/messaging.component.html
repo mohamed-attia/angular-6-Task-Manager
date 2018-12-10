@@ -1,0 +1,4 @@
+<div *ngFor="let message of messages" class="{{ cssClass(message) }} alert-dismissable">
+    {{message.message}}
+    <a class="close" (click)="removeMessage(message)">&times;</a>
+</div>
