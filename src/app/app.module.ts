@@ -26,7 +26,7 @@ import { ViewTaskComponent } from './view-task/view-task.component'
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule
   ],

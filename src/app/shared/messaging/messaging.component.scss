@@ -3,9 +3,13 @@
     position: absolute;
     top: 13px;
     right: 10px;
+    color:#fff
 }
 .alert-success {
-    color: #fff;
     background-color: #009432;
     border-color: #009432;
+}
+.alert-warning {
+    background-color: #F79F1F;
+    border-color: #F79F1F;
 }

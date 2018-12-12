@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { TasksService } from "src/app/services/tasks.service";
-import { TasksModel } from "src/app/models/tasks-model";
+import { TasksService } from "src/app/api/services/tasks.service";
+import { TasksModel } from "src/app/api/models/tasks-model";
 import { Title } from "@angular/platform-browser";
 import { trigger, transition, style, query, animate,group } from '@angular/animations';
 

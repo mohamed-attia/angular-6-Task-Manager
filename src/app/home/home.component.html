@@ -1,6 +1,6 @@
 <div class="container pt-4">
 
-  <div><a routerLink="/add-task" class="btn btn-primary"> Add New Task</a></div>
+  <div><a routerLink="/add-task" class="btn btn-primary"> Add New Task <i class="fa fa-clipboard"></i></a></div>
 
   <div *ngIf="tasks.length === 0" class="mt-4">
     <p class="alert alert-primary">There are no tasks enjoy your day !!</p>
@@ -10,9 +10,9 @@
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let task of tasksService.tasks;index as i">
         <a class="align-middle">{{task.title}}</a>
-        <button class="btn btn-danger float-right" (click)="deleteTask(i)">Delete</button>
-        <a class="btn btn-success float-right mr-2" [routerLink]="['/view-task',i]">View</a>
-        <a class="btn btn-primary float-right mr-2" [routerLink]="['/task',i]">Edit</a>
+        <button class="btn btn-danger float-right" (click)="deleteTask(i)">Delete <i class="fa fa-trash"></i></button>
+        <a class="btn btn-success float-right mr-2" [routerLink]="['/view-task',i]">View <i class="fa fa-eye"></i></a>
+        <a class="btn btn-primary float-right mr-2" [routerLink]="['/task',i]">Edit <i class="fa fa-edit"></i></a>
       </li>
     </ul>
   </div>

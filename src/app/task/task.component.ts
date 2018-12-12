@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { TasksService } from "src/app/services/tasks.service";
-import { TasksModel } from "src/app/models/tasks-model";
+import { TasksService } from "src/app/api/services/tasks.service";
+import { TasksModel } from "src/app/api/models/tasks-model";
 import { Title } from "@angular/platform-browser";
 import { trigger, transition, style, query, animate,group } from '@angular/animations';
+import {MessageService} from '../shared/messaging/messaging.service';
 
 @Component({
   selector: "app-task",
@@ -25,11 +26,13 @@ import { trigger, transition, style, query, animate,group } from '@angular/anima
 export class TaskComponent implements OnInit {
   public taskId;
   public task: TasksModel = {};
+  public isEdit: boolean = false;
   constructor(
     private title: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private tasksService: TasksService
+    private tasksService: TasksService,
+    private messageService: MessageService
   ) {
     this.taskId = this.activatedRoute.snapshot.paramMap.get("id");
     this.getTaskById();
@@ -45,7 +48,11 @@ export class TaskComponent implements OnInit {
   }
 
   editTask() {
-    this.tasksService.updateTask(this.taskId, this.task);
-    this.router.navigate(["/"]);
+    if (this.isEdit) {
+      this.tasksService.updateTask(this.taskId, this.task);
+      this.router.navigate(["/"]);
+    } else {
+      this.messageService.warn("No changes !");
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TasksService } from 'src/app/services/tasks.service';
+import { TasksService } from 'src/app/api/services/tasks.service';
 import { Title } from '@angular/platform-browser';
 import { trigger, transition, style, query, animate, group,state } from '@angular/animations';
 

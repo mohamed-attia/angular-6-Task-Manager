@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
-import { TasksModel } from "src/app/models/tasks-model";
-import {MessageService} from '../shared/messaging/messaging.service';
+import { TasksModel } from "src/app/api/models/tasks-model";
+import {MessageService} from '../../shared/messaging/messaging.service';
 
 @Injectable({
   providedIn: "root"
 })
+
 export class TasksService {
   public tasks: Array<TasksModel>;
 
