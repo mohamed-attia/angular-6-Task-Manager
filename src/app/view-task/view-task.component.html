@@ -3,7 +3,7 @@
     <div><a routerLink="/" class="btn btn-primary">	<i class="fa fa-chevron-left"></i> Task Manager</a></div>
     <div class="card mt-4">
       <div class="card-body">
-        <h5 class="card-title">{{task.title}}</h5>
+        <span class="task-priority" [style.background]="getPriority(task.priority)"> </span> <h5 class="card-title">{{task.title}}</h5>
         <p class="card-text">{{task.description}}</p>
       </div>
     </div>

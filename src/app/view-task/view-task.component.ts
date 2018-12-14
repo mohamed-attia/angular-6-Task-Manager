@@ -8,7 +8,7 @@ import { trigger, transition, style, query, animate,group } from '@angular/anima
 @Component({
   selector: 'app-view-task',
   templateUrl: './view-task.component.html',
-  styleUrls: ['./view-task.component.sass'],
+  styleUrls: ['./view-task.component.scss'],
   animations: [
     trigger('fadeIn', [
       transition('void => *', [
@@ -41,5 +41,14 @@ export class ViewTaskComponent implements OnInit {
 
   getTaskById() {
     this.task = this.tasksService.tasks[this.taskId];
+  }
+  public getPriority(priority) {
+    if (priority === 'high') {
+      return 'red';
+    } else if (priority === 'normal') {
+      return 'orange';
+    } else {
+      return 'green';
+    }
   }
 }

@@ -1,14 +1,23 @@
 <div class="container pt-4">
 
-  <div><a routerLink="/add-task" class="btn btn-primary"> Add New Task <i class="fa fa-clipboard"></i></a></div>
+  <div>
+    <a routerLink="/add-task" class="btn btn-primary"> Add New Task <i class="fa fa-clipboard"></i>
+    </a>
+  </div>
+  
+  <ng-container *ngIf="tasks.length !== 0">
+    <span class="total-count">{{totalHigh}}</span>
+    <span class="total-count total-normal">{{totalNormal}}</span>
+    <span class=" total-count total-low">{{totalLow}}</span>
+  </ng-container>
 
-  <div *ngIf="tasks.length === 0" class="mt-4">
-    <p class="alert alert-primary">There are no tasks enjoy your day !!</p>
+  <div *ngIf="tasks.length === 0" class="mt-4 text-center">
+    <p class="alert alert-primary">No tasks enjoy your day !!</p>
   </div>
   
   <div [@fadeIn]="state" class="mt-4 card" *ngIf="tasks.length !== 0">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let task of tasksService.tasks;index as i">
+      <li class="list-group-item task-priority" [style.border-color]="getPriority(task.priority)" *ngFor="let task of tasksService.tasks;index as i">
         <a class="align-middle">{{task.title}}</a>
         <button class="btn btn-danger float-right" (click)="deleteTask(i)">Delete <i class="fa fa-trash"></i></button>
         <a class="btn btn-success float-right mr-2" [routerLink]="['/view-task',i]">View <i class="fa fa-eye"></i></a>

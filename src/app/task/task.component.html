@@ -11,6 +11,11 @@
       />
     </div>
     <div class="form-group">
+      <label class="mr-4"><input type="radio" name="optradio"  [value]= "'high'"  [checked]="task.priority === 'high'"  (change)="task.priority = 'high'">High</label>
+      <label class="mr-4"><input type="radio" name="optradio"  [value]= "'normal'" [checked]="task.priority === 'normal'"  (change)="task.priority = 'normal'">Norml</label>
+      <label class="mr-4"><input type="radio" name="optradio"  [value]= "'low'" [checked]="task.priority === 'low'"  (change)="task.priority = 'low'">Low</label>
+    </div>
+    <div class="form-group">
       <textarea
         class="form-control"
         placeholder="Task Description"

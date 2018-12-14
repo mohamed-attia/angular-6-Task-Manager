@@ -1,6 +1,35 @@
 ul > li:nth-child(even){
-    background: #cccccc1f
+    background: #fbfbfb
 }
 ul > li:hover{
-    background: #ccc
+    background: #cccccc1f
+}
+.total-count {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: red;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top: 28px;
+    left: 280px;
+    border: 1px solid #fff;
+}
+.total-count.total-normal {
+    left:315px;
+    background: orange
+}
+.total-count.total-low {
+    left:350px;
+    background: #28a745
+}
+.card,.card>.list-group:first-child .list-group-item:first-child,
+.card>.list-group:last-child .list-group-item:last-child {
+    border-radius: 0
+}
+.task-priority {
+    border:0;
+    border-left: 5px solid ;
 }
