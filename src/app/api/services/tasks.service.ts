@@ -16,7 +16,7 @@ export class TasksService {
   public deleteTaskById(index) {
     this.tasks.splice(index, 1);
     setTimeout(()=>{
-      this.messageService.success("Task Deleted Successfully");
+      this.messageService.success("Task Successfully Deleted ");
     },500)
     this.saveAll()
   }
@@ -24,7 +24,7 @@ export class TasksService {
   public addNewTask(task) {
     this.tasks.push(task);
     setTimeout(()=>{
-      this.messageService.success("Task Added Successfully");
+      this.messageService.success("Task Successfully Added ");
     },500)
     this.saveAll();
   }
@@ -32,7 +32,7 @@ export class TasksService {
   public updateTask(id, newTask) {
     this.tasks[id] = newTask;
     setTimeout(()=>{
-      this.messageService.success("Task Updated Successfully");
+      this.messageService.success("Task Successfully Updated ");
     },500)
     this.saveAll();
   }

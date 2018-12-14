@@ -10,6 +10,7 @@ import {
   group,
   state
 } from "@angular/animations";
+import { ConfirmationDialogService } from '../shared/confirmation-dialog/confirmation.service';
 
 @Component({
   selector: "app-home",
@@ -39,25 +40,43 @@ export class HomeComponent implements OnInit {
   public totalHigh: number = 0;
   public totalNormal: number = 0;
   public totalLow: number = 0;
-  constructor(private tasksService: TasksService, private title: Title) {}
+  constructor(private confirmationDialogService: ConfirmationDialogService,
+    private tasksService: TasksService, private title: Title) { }
 
   ngOnInit() {
-    this.tasks = this.tasksService.tasks;
+    this.getTasks();
     this.title.setTitle("Task Manager");
     setTimeout(() => {
       this.state = "s2";
     }, 100);
-    this.getTasknNumber();
+  }
+
+  public getTasks() {
+    this.tasks = this.tasksService.tasks;
+    this.getTaskNumber();
   }
 
   public deleteTask(index) {
-    if (confirm("Are you sure to delete " + this.tasks[index].title)) {
-      this.tasksService.deleteTaskById(index);
-    }
+    this.confirmationDialogService.confirm(
+      'Delete',
+      'Do you really want to delete ' + this.tasks[index].title + '?')
+      .then((confirmed) => {
+        if (confirmed) {
+          this.tasksService.deleteTaskById(index);
+          this.getTasks();
+        } else {
+          return
+        }
+      })
+      .catch(() => { return });
   }
 
-  public getTasknNumber() {
+  public getTaskNumber() {
+    this.totalHigh = 0;
+    this.totalLow = 0;
+    this.totalNormal = 0;
     if (this.tasksService.tasks.length) {
+      debugger
       for (let i = 0; i < this.tasksService.tasks.length; i++) {
         if (this.tasksService.tasks[i].priority === "high") {
           this.totalHigh++;
