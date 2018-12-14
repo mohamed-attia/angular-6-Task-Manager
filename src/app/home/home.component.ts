@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
   public deleteTask(index) {
     this.confirmationDialogService.confirm(
       'Delete',
-      'Do you really want to delete ' + this.tasks[index].title + '?')
+      'Do you really want to delete ' + this.tasks[index].title + '?',undefined,undefined,'md')
       .then((confirmed) => {
         if (confirmed) {
           this.tasksService.deleteTaskById(index);
