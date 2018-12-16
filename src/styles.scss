@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+/*  form Validation Style */
+.error-message.mandatory {
+    color: red
+}
+.requiredInput > input {
+    border: 1px solid red
+}

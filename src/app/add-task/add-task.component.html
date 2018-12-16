@@ -1,25 +1,22 @@
 <div @fadeIn class="container pt-4">
   <div><a routerLink="/" class="btn btn-primary">	<i class="fa fa-chevron-left"></i> Task Manager</a></div>
-  <div class="form-group mt-4">
-    <input
-      class="form-control"
-      type="text"
-      placeholder="Task Title"
-      [(ngModel)]="task.title"
-    />
-  </div>
-  <div class="form-group">
-    <label class="mr-4"><input type="radio" name="optradio" (change)="task.priority = 'high'">High</label>
-    <label class="mr-4"><input type="radio" name="optradio" (change)="task.priority = 'normal'">Norml</label>
-    <label class="mr-4"><input type="radio" name="optradio" (change)="task.priority = 'low'">Low</label>
-  </div>
-  <div class="form-group">
-    <textarea
-      class="form-control"
-      placeholder="Task Description"
-      [(ngModel)]="task.description"
-    ></textarea>
-  </div>
-  <button class="btn btn-success mr-2" (click)="addTask()">Add <i class="fa fa-save"></i></button>
-  <a class="btn btn-danger" routerLink="/">Cancel <i class="fa fa-times"></i> </a>
+  <form (ngSubmit)="submitMandatory(form)" #form="ngForm" appMandatoryInputs (ValidStatus)="checkValidityandSubmit($event)">
+    <div class="form-group mt-4" appMandatoryFormGroup>
+      <input
+        class="form-control" type="text" placeholder="Task Title" [(ngModel)]="task.title" name='tasktitle' required/>
+    </div>
+    <div class="form-group">
+      <label class="mr-4"><input type="radio" name="optradio" (change)="task.priority = 'high'">High</label>
+      <label class="mr-4"><input type="radio" name="optradio" (change)="task.priority = 'normal'">Norml</label>
+      <label class="mr-4"><input type="radio" name="optradio" (change)="task.priority = 'low'">Low</label>
+    </div>
+    <div class="form-group">
+      <textarea
+        class="form-control" placeholder="Task Description"
+        [(ngModel)]="task.description" name="tasDescription">
+      </textarea>
+    </div>
+    <button class="btn btn-success mr-2" type="submit">Add <i class="fa fa-save"></i></button>
+    <a class="btn btn-danger" routerLink="/">Cancel <i class="fa fa-times"></i> </a>
+  </form>
 </div>

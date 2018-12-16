@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { TaskComponent } from './task/task.component';
+import { TaskComponent } from './edit-task/edit-task.component';
 
 //--- shared
 import { AlertComponent } from './shared/messaging/messaging.component';
 import { MessageService } from './shared/messaging/messaging.service';
+import {CheckMandatoryServiceService} from './shared/mandatory/check-mandatory-service/check-mandatory-service.service';
+import {MandatoryFormGroupDirective} from './shared/mandatory/mandatory-form-group/mandatory-form-group.directive';
+import {MandatoryInputsDirective} from './shared/mandatory/mandatory-inputs/mandatory-inputs.directive';
 
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { ConfirmationDialogService } from './shared/confirmation-dialog/confirmation.service';
@@ -30,7 +33,9 @@ import { ViewTaskComponent } from './view-task/view-task.component'
     TaskComponent,
     ViewTaskComponent,
     AlertComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    MandatoryFormGroupDirective,
+    MandatoryInputsDirective
   ],
   imports: [
     BrowserAnimationsModule,
@@ -39,6 +44,9 @@ import { ViewTaskComponent } from './view-task/view-task.component'
     FormsModule,
     NgbModule.forRoot()
   ],
+  exports:[
+    MandatoryFormGroupDirective,
+    MandatoryInputsDirective],
   providers: [MessageService, ConfirmationDialogService],
   bootstrap: [AppComponent],
   entryComponents: [ ConfirmationDialogComponent ],

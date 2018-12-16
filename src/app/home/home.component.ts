@@ -37,13 +37,14 @@ import { ConfirmationDialogService } from '../shared/confirmation-dialog/confirm
 export class HomeComponent implements OnInit {
   public tasks = [];
   public state = "s1";
-  public totalHigh: number = 0;
-  public totalNormal: number = 0;
-  public totalLow: number = 0;
+  public totalHigh: number;
+  public totalNormal: number;
+  public totalLow: number;
   constructor(private confirmationDialogService: ConfirmationDialogService,
     private tasksService: TasksService, private title: Title) { }
 
   ngOnInit() {
+    debugger
     this.getTasks();
     this.title.setTitle("Task Manager");
     setTimeout(() => {
@@ -76,7 +77,6 @@ export class HomeComponent implements OnInit {
     this.totalLow = 0;
     this.totalNormal = 0;
     if (this.tasksService.tasks.length) {
-      debugger
       for (let i = 0; i < this.tasksService.tasks.length; i++) {
         if (this.tasksService.tasks[i].priority === "high") {
           this.totalHigh++;
