@@ -15,6 +15,7 @@ import { ConfirmationDialogService } from '../shared/confirmation-dialog/confirm
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
+  providers: [ConfirmationDialogService],
   styleUrls: ["./home.component.scss"],
   animations: [
     trigger("fadeIn", [
@@ -39,12 +40,11 @@ export class HomeComponent implements OnInit {
   public state = "s1";
   public totalHigh: number;
   public totalNormal: number;
-  public totalLow: number;
+  public totalLow: number ;
   constructor(private confirmationDialogService: ConfirmationDialogService,
     private tasksService: TasksService, private title: Title) { }
 
   ngOnInit() {
-    debugger
     this.getTasks();
     this.title.setTitle("Task Manager");
     setTimeout(() => {
