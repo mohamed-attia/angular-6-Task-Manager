@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { TasksService } from "src/app/api/services/tasks.service";
-import { Title } from "@angular/platform-browser";
+import {TasksService } from "src/app/api/services/tasks.service";
+import {    Title      } from "@angular/platform-browser";
 import {
   trigger,
   transition,
@@ -45,23 +45,25 @@ export class HomeComponent implements OnInit {
     private tasksService: TasksService, private title: Title) { }
 
   ngOnInit() {
+    this.tasksService.getData().subscribe(res=>{
+      console.log('data')
+    })
     this.getTasks();
     this.title.setTitle("Task Manager");
     setTimeout(() => {
-      this.state = "s2";
-    }, 100);
-  }
+         this.state = "s2";
+    },      100);}
 
   public getTasks() {
-    this.tasks = this.tasksService.tasks;
+       this.tasks = this.tasksService.tasks;
     this.getTaskNumber();
-  }
+                                      }
 
-  public deleteTask(index) {
+  public    deleteTask(index) {
     this.confirmationDialogService.confirm(
       'Delete',
       'Do you really want to delete ' + this.tasks[index].title + '?',undefined,undefined,'md')
-      .then((confirmed) => {
+             .then((confirmed) => {
         if (confirmed) {
           this.tasksService.deleteTaskById(index);
           this.getTasks();

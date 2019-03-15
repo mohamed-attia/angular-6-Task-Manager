@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { TasksModel } from "src/app/api/models/tasks-model";
 import {MessageService} from '../../shared/messaging/messaging.service';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -9,10 +10,13 @@ import {MessageService} from '../../shared/messaging/messaging.service';
 export class TasksService {
   public tasks: Array<TasksModel>;
 
-  constructor(private messageService: MessageService) {
+  constructor(private messageService: MessageService, private httpClient:HttpClient) {
    this.tasks =  JSON.parse(localStorage.getItem('tasks')) || [];
   }
-
+//TODO: needs to be changes with firebase url
+  public getData(){
+    return this.httpClient.get('https://www.mocky.io/v2/5185415ba171ea3a00704eed');
+  }
   public deleteTaskById(index) {
     this.tasks.splice(index, 1);
     setTimeout(()=>{
