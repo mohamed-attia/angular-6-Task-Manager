@@ -1,10 +1,10 @@
-ul > li:nth-child(even)    {
+ul > li:nth-child(even){
     background: #fbfbfb
 }
 ul > li:hover    {
     background:      #cccccc1f
 }
-.total-count     {
+.total-count{
     border-radius:   50%;
     width: 30px;
     height: 30px;
@@ -25,11 +25,11 @@ ul > li:hover    {
     left:350px;
     background:#28a745
 }
-.card,.card   >.list-group:first-child .list-group-item:first-child,
+.card,.card>.list-group:first-child .list-group-item:first-child,
 .card>.list-group:last-child .list-group-item:last-child {
     border-radius:0
 }
-.task-priority       {
-    border:0;      
-          border-left: 5px solid ;
+.task-priority {
+    border:0;
+    border-left: 5px solid ;
 }
